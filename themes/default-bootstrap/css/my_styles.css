@@ -1,0 +1,77 @@
+/*My Custom Styles*/
+/*HEADER section*/
+@media only screen and (min-width: 800px){
+	#header{
+	 	position: fixed;
+	    width: 100%;
+	}
+
+	.is-hidden-hn{
+		display: none;
+	}
+
+	.columns-container {
+    	padding-top: 80px;
+	}
+}
+
+/*PEDIOS / FACTURAS section (pedidosns)*/
+.page-subtitulo{
+  border-bottom: 1px solid #d6d4d4;
+    color: #f50;
+    font: 600 14px/22px "Open Sans",sans-serif;
+    margin-bottom: 15px;
+    overflow: hidden;
+    padding: 0 0 17px;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 481px){
+  #order-list-enpiso td:nth-of-type(3) {
+    display: none;
+  }
+  #order-list-enpiso td:nth-of-type(4) {
+    display: none;
+  }
+}
+
+.btnDetallePedido{
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.btnRmaEnviar{ background-color: #f50; color: white;}
+.btnRmaEnviar:disabled{ background-color: #FEB48F; color: white;}
+
+/*Change the color of element h4 in each module into the footer*/
+.myFooter h4{
+ color: #141f24 !important;
+}
+.myFooter h4 a{
+ color: #141f24 !important;
+}
+
+/*Productos relacionados y en conjunto section*/
+h3.page-product-heading-conjunto{
+  -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #fbfbfb none repeat scroll 0 0;
+    border-color: #d6d4d4 #d6d4d4 -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    color: #555454;
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 0 20px;
+    padding: 10px;
+    position: relative;
+    text-transform: uppercase;  
+}
+.button.ajax_add_to_cart_button.conjunto{
+    width: unset;
+}

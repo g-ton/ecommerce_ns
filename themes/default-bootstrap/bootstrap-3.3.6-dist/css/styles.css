@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+.container{ background:#f6f6f6;}
+.container-fluid{ background:#A106D3}
+.main{ background:#1E18B4}
+asaid{ background:#15D042}
+.border_div{ border-bottom:1px solid #ddd}
+.mar_bot40{ margin-bottom:40px}
+.mar_top40{ margin-top:40px}
+
+
+.btn-default{color:#fff;background-color:#f50;border-color:#e64d00; width:180px;}
+
+.btn-default:hover{color:#fff;background-color:#fd4101;border-color:#e64d00;}
+.color_gris{ color:#BBBBBB}
+.color_naranja{ color:#ff5500}

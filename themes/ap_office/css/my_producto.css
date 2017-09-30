@@ -1,0 +1,9 @@
+.nombre-producto-conjunto{
+	height: 70px;
+}
+
+.producto-precio-conjunto{
+	display: block;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+}
