@@ -21,7 +21,7 @@ class PedidosFacturaController extends FrontController
         $this->addJS(array(
             _THEME_JS_DIR_.'history.js',
             _THEME_JS_DIR_.'tools.js', // retro compat themes 1.5
-            _THEME_JS_DIR_.'pedidos-factura.js',
+            _THEME_JS_DIR_.'pedidos-factura.min.js',
             _THEME_JS_DIR_.'/jsgrid/jsgrid.min.js',
             _THEME_JS_DIR_.'/jsgrid/i18n/jsgrid-es.js',
             _THEME_JS_DIR_.'/jquery-ui/jquery-ui.min.js',

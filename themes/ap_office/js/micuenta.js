@@ -1,6 +1,6 @@
 /*Author: J.Damián*/
 
-//Function: Envía datos de logeo a el cotizador
+//Function: Envía datos de logeo al cotizador
 $(document).ready(function(){
 	$("#btnToYii").click(function(e){
 		e.preventDefault();
@@ -20,12 +20,12 @@ $(document).ready(function(){
 					window.open(window.location.origin+"/cotizador/index.php?r=Joyeria/cotizaciones/superIndex"); 
 			    },
 			    error: function (xhr, ajaxOptions, thrownError) {
-			    	console.log('Error al conectar con Cotizador');
+			    	alert('Error al conectar con Cotizador, intente más tarde');
 			    }
 			});
 		}
 
 		else
-			console.log('Nombre de Usuario no definido');
+	    	alert('Credenciales incorrectas para conectar con Cotizador, verifique con personal Nsstore');
 	});
 });
