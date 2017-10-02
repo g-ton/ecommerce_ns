@@ -123,7 +123,7 @@ class BlockCategories extends Module
 		return $output.$this->renderForm();
 	}
 
-	public function getTree($resultParents, $resultIds, $maxDepth, $id_category = null, $currentDepth = 0, $banderaMarca)
+	public function getTree($resultParents, $resultIds, $maxDepth, $id_category = null, $currentDepth = 0, $banderaMarca= null)
 	{	
 		//Área modificada Start- Obtiene el árbol de categorías que contiene el fabricante
 		$arrayInicio= array("id"=>2, "link"=>"", "name"=>"", "children"=>array());
@@ -231,6 +231,8 @@ class BlockCategories extends Module
 		$this->setLastVisitedCategory();
 		$phpself = $this->context->controller->php_self;
 		$current_allowed_controllers = array('category');
+		$banderaMarca= 0;
+		$id_marca_search= '';
 
 		if ($phpself != null && in_array($phpself, $current_allowed_controllers) && Configuration::get('BLOCK_CATEG_ROOT_CATEGORY') && isset($this->context->cookie->last_visited_category) && $this->context->cookie->last_visited_category)
 		{
