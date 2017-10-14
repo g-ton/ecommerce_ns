@@ -1,6 +1,6 @@
 <h1 class="page-heading bottom-indent">Estado de Cuenta</h1>
 <div class="row" style="margin-bottom: 15px;">
-	<div class="col-md-6 col-offset-6">La información del siguiente estado de cuenta corriente tiene un desface. En este caso los datos desplegados son los vigentes a la fecha: {$fecha_actual}</div>
+	<div class="col-md-6 col-offset-6">Datos vigentes a la fecha: {$fecha_actual}</div>
 </div>
 
 <div class="container">
@@ -57,8 +57,27 @@
 	  </tr>
 	</table>
 </div>
-<input type="hidden" id="idCliente" value="{$id_cliente_sl}">
-<!-- Tabla con Jqxgrid widget -->
 
-<h1 class="page-heading bottom-indent">Detalle Facturas - Remisiones vencidas al: {$fecha_actual} </h1>
-<div id="jqxgrid" style="width: 100%;"></div>
+<input type="hidden" id="idCliente" value="{$id_cliente_sl}">
+
+<h1 class="page-heading bottom-indent">Detalle "Facturas - Remisiones" vencidas al: {$fecha_actual} </h1>
+
+<!-- Navegador de pestañas -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#fact" data-toggle="tab">Facturas</a></li>
+  <li><a href="#rem" data-toggle="tab">Remisiones</a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane fade in active" id="fact">
+		<!-- Js Grid - start -->
+		<div id="facturas"></div>
+		<!-- Js Grid - end -->
+	</div>
+
+	<div class="tab-pane fade" id="rem" >
+		<!-- Js Grid - start -->
+		<div id="remisiones"></div>
+		<!-- Js Grid - end -->
+	</div>
+</div>

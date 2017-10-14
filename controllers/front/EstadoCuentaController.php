@@ -15,20 +15,20 @@ class EstadoCuentaController extends FrontController
             _THEME_CSS_DIR_.'history.css',
             _THEME_CSS_DIR_.'addresses.css',
             _THEME_CSS_DIR_.'/styles-jqx/jqx.base.css',
+
+            _THEME_CSS_DIR_.'/jsgrid/jsgrid.min.css',
+            _THEME_CSS_DIR_.'/jsgrid/jsgrid-theme.min.css',
+            _THEME_CSS_DIR_.'/jquery-ui/jquery-ui.min.css',
         ));
         $this->addJS(array(
             _THEME_JS_DIR_.'history.js',
             _THEME_JS_DIR_.'estado-cuenta.js',
             _THEME_JS_DIR_.'tools.js', // retro compat themes 1.5
 
-            _THEME_JS_DIR_.'/jqwidgets/jqxcore.js',
-            _THEME_JS_DIR_.'/jqwidgets/jqxbuttons.js',
-            _THEME_JS_DIR_.'/jqwidgets/jqxscrollbar.js',
-            _THEME_JS_DIR_.'/jqwidgets/jqxmenu.js',
-            _THEME_JS_DIR_.'/jqwidgets/jqxgrid.js',
-            _THEME_JS_DIR_.'/jqwidgets/jqxgrid.selection.js',
-            _THEME_JS_DIR_.'/jqwidgets/jqxgrid.columnsresize.js',
-            _THEME_JS_DIR_.'/jqwidgets/jqxdata.js',
+            _THEME_JS_DIR_.'/jsgrid/jsgrid.min.js',
+            _THEME_JS_DIR_.'/jsgrid/i18n/jsgrid-es.js',
+            _THEME_JS_DIR_.'/jquery-ui/jquery-ui.min.js',
+            _THEME_JS_DIR_.'my-datepicker.js',
         ));
         $this->addJqueryPlugin(array('scrollTo', 'footable', 'footable-sort'));
     }
@@ -60,7 +60,7 @@ class EstadoCuentaController extends FrontController
             'slowValidation' => Tools::isSubmit('slowvalidation'),
             'id_cliente_ps' => $id_cliente_ps,
             'id_cliente_sl' => $id_cliente_sl,
-            'fecha_actual' => date('Y-m-d'),
+            'fecha_actual' => date('d-m-Y'),
         ));
 	//
         $this->setTemplate(_PS_THEME_DIR_.'estadoCuenta.tpl');

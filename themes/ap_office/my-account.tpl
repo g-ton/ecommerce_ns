@@ -58,6 +58,8 @@
             <!-- Modificado para apartado de RMAS ns -->
             <li><a href="{$link->getPageLink('rmas', true)|escape:'html':'UTF-8'}" title="Información sobre devoluciones de mercanc&iacute;a"><i class="icon-building"></i><span>Mis RMAS</span></a></li>
 
+            <li><a href="{$link->getPageLink('estado-cuenta', true)|escape:'html':'UTF-8'}" title="Estado de Cuenta"><i class="icon-building"></i><span>Mi Estado de Cuenta</span></a></li>
+
             <!-- Modificado para apartado de Cotizador ns -->
             <li><a id="btnToYii" href="#" title="Realizar cotizaciones de manera sencilla" data-nombreusuario="{$nombre_usuario}" data-id="{$id_cliente}"><i class="icon-building"></i><span>Mi Cotizador</span></a></li>
         </ul>
