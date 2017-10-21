@@ -51,6 +51,11 @@
 	    <td id='montoNoVencidasRem'></td>
 	  </tr>
 	  <tr>
+	    <td><strong>Saldo a Favor</strong></td>
+	    <td id='saldoFavor' style='color: green;'></td>
+	    <td></td>
+	  </tr>
+	  <tr>
 	    <td><strong>Crédito Disponible</strong></td>
 	    <td></td>
 	    <td id='creditoDisponible' style='color: green;'></td>
@@ -60,12 +65,13 @@
 
 <input type="hidden" id="idCliente" value="{$id_cliente_sl}">
 
-<h1 class="page-heading bottom-indent">Detalle "Facturas - Remisiones" vencidas al: {$fecha_actual} </h1>
+<h1 class="page-heading bottom-indent">Detalle "Facturas - Remisiones" vencidas y Notas de Crédito al: {$fecha_actual} </h1>
 
 <!-- Navegador de pestañas -->
 <ul class="nav nav-tabs">
   <li class="active"><a href="#fact" data-toggle="tab">Facturas</a></li>
   <li><a href="#rem" data-toggle="tab">Remisiones</a></li>
+  <li><a href="#nc" data-toggle="tab">Notas de Crédito</a></li>
 </ul>
 
 <div class="tab-content">
@@ -78,6 +84,12 @@
 	<div class="tab-pane fade" id="rem" >
 		<!-- Js Grid - start -->
 		<div id="remisiones"></div>
+		<!-- Js Grid - end -->
+	</div>
+
+	<div class="tab-pane fade" id="nc" >
+		<!-- Js Grid - start -->
+		<div id="notas_credito"></div>
 		<!-- Js Grid - end -->
 	</div>
 </div>
