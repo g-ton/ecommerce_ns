@@ -376,3 +376,11 @@ table#product_comparison .remove a:hover {
 #off-canvas-nav .offcanvas-mainnav {
   background-color: #0079c0;
 }
+
+/*Mis estilos personalizados*/
+
+/*Pinta el fondo azul en la pestaña activa*/
+.nav-tabs > li.active > a, .nav-tabs > li.mypestana_fondo > a:focus{
+  background-color: #0079c0;
+  color: white; 
+}

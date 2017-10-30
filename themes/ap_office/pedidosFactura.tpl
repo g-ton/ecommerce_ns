@@ -18,8 +18,8 @@
 <div class="block-center" id="block-history">	
 	<!-- Navegador de pestañas -->
 	<ul class="nav nav-tabs">
-      <li class="active"><a href="#wed" data-toggle="tab">Pedidos Web</a></li>
-      <li><a href="#enpiso" data-toggle="tab">Pedidos en Piso</a></li>
+      <li class="active mypestana_fondo"><a href="#wed" data-toggle="tab">Pedidos Web</a></li>
+      <li class="mypestana_fondo"><a href="#enpiso" data-toggle="tab">Pedidos en Piso</a></li>
     </ul>
 
     <div class="tab-content">

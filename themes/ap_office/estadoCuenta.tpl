@@ -1,19 +1,19 @@
 <h1 class="page-heading bottom-indent">Estado de Cuenta</h1>
 <div class="row" style="margin-bottom: 15px;">
-	<div class="col-md-6 col-offset-6">Datos vigentes a la fecha: {$fecha_actual}</div>
+	<div class="col-md-6 col-offset-6">Datos de Crédito a la fecha: {$fecha_actual}</div>
 </div>
 
 <div class="container">
 	<table class="table table-condensed my-tabla-strong">
 	  <tr>
-	    <th>Crédito</th>
-	    <th></th>
-	    <th></th>
-	  </tr>
-	  <tr>
 	    <td>Monto total en la línea de Crédito</td>
 	    <td></td>
 	    <td id='montoTotalCredito' style='color: green;'></td>
+	  </tr>
+	  <tr>
+	    <td><strong>Saldo a Favor</strong></td>
+	    <td id='saldoFavor' style='color: green;'></td>
+	    <td></td>
 	  </tr>
 	  <tr>
 	    <th></th>
@@ -51,11 +51,6 @@
 	    <td id='montoNoVencidasRem'></td>
 	  </tr>
 	  <tr>
-	    <td><strong>Saldo a Favor</strong></td>
-	    <td id='saldoFavor' style='color: green;'></td>
-	    <td></td>
-	  </tr>
-	  <tr>
 	    <td><strong>Crédito Disponible</strong></td>
 	    <td></td>
 	    <td id='creditoDisponible' style='color: green;'></td>
@@ -69,9 +64,9 @@
 
 <!-- Navegador de pestañas -->
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#fact" data-toggle="tab">Facturas</a></li>
-  <li><a href="#rem" data-toggle="tab">Remisiones</a></li>
-  <li><a href="#nc" data-toggle="tab">Notas de Crédito</a></li>
+  <li class="active mypestana_fondo"><a href="#fact" data-toggle="tab">Facturas</a></li>
+  <li class="mypestana_fondo"><a href="#rem" data-toggle="tab">Remisiones</a></li>
+  <li class="mypestana_fondo"><a href="#nc" data-toggle="tab">Notas de Crédito</a></li>
 </ul>
 
 <div class="tab-content">
@@ -93,3 +88,28 @@
 		<!-- Js Grid - end -->
 	</div>
 </div>
+
+<!-- Elemento donde se muestra el contenido del fancybox -->
+<div id="divDetallePago" style="display: none;">
+	<div id="detalle_pagos">
+		<h1 id="mensaje" class="page-heading bottom-indent"></h1>
+		<table id="my-tabla-pagos" class="table table-condensed" style="display: none;">
+		  	<thead>
+				<tr>
+					<th>Tipo Pago</th>
+					<th>Fecha</th>
+					<th>Monto Cubierto</th>
+					<th>Monto Restante</th>
+				</tr>
+		  	</thead>
+
+		  	<tbody></tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+
+

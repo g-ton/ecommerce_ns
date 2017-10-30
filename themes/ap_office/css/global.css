@@ -12230,6 +12230,7 @@ div.star.star_hover:after {
   content: "\f280";
 }
 
+/*Mis estilos personalizados*/
 /*Estilos propios - start*/
 .menu-borde{
   box-shadow: 0 0 20px 5px gray !important;
@@ -12237,5 +12238,11 @@ div.star.star_hover:after {
 
 .sf-menu > li > ul > li{
   margin-bottom: 10px;
+}
+
+/*Pinta el fondo amarillo en la pestaña activa*/
+.nav-tabs > li.active > a, .nav-tabs > li.mypestana_fondo > a:focus{
+  background-color: #f2b134;
+  color: white; 
 }
 /*Estilos propios - end*/
