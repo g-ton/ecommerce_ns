@@ -113,6 +113,7 @@ $(document).ready(function()
             { name: "monto_total", type: "text", title: "Monto Total", filtering: false},
             { name: "abonado", type: "text", title: "Abonado", filtering: false},
             { name: "saldo", type: "text", title: "Saldo Final", filtering: false},
+            { name: "detalle", type: "text", title: "Detalle", filtering: false},
             //Con esto se pintan las opciones de búsqueda y limpiado
             { type: "control", editButton: false, deleteButton: false, modeSwitchButton: false }
         ]
@@ -172,7 +173,6 @@ function detallePago(id_documento, tipo){
         encoding: "UTF-8",
         cache: false,
         success: function (data) {
-            console.log(data);
             //Limpia la tabla antes de cada resultado
             $('#my-tabla-pagos > tbody').empty();
             $('#detalle_pagos #mensaje').text(data.mensaje);    

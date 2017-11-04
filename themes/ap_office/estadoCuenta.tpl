@@ -1,3 +1,11 @@
+{capture name=path}
+	<a href="{$link->getPageLink('my-account', true)|escape:'html':'UTF-8'}">
+		Mi Cuenta
+	</a>
+	<span class="navigation-pipe">{$navigationPipe}</span>
+	<span class="navigation_page">Mi Estado de Cuenta</span>
+{/capture}
+{include file="$tpl_dir./errors.tpl"}
 <h1 class="page-heading bottom-indent">Estado de Cuenta</h1>
 <div class="row" style="margin-bottom: 15px;">
 	<div class="col-md-6 col-offset-6">Datos de Crédito a la fecha: {$fecha_actual}</div>
