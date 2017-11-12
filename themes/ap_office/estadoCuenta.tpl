@@ -81,18 +81,21 @@
 	<div class="tab-pane fade in active" id="fact">
 		<!-- Js Grid - start -->
 		<div id="facturas"></div>
+		<a href="/yiiNsstore/index.php?r=pedidosFacturaYii/getArchivoFacturas&id_cliente_sl={$id_cliente_sl}" target='_blank' class='btn btn-default button button-small' title='Exportar resultado a PDF'><span>Exportar a PDF</span></a>
 		<!-- Js Grid - end -->
 	</div>
 
 	<div class="tab-pane fade" id="rem" >
 		<!-- Js Grid - start -->
 		<div id="remisiones"></div>
+		<a href="/yiiNsstore/index.php?r=pedidosFacturaYii/getArchivoRemisiones&id_cliente_sl={$id_cliente_sl}" target='_blank' class='btn btn-default button button-small' title='Exportar resultado a PDF'><span>Exportar a PDF</span></a>
 		<!-- Js Grid - end -->
 	</div>
 
 	<div class="tab-pane fade" id="nc" >
 		<!-- Js Grid - start -->
 		<div id="notas_credito"></div>
+		<a href="/yiiNsstore/index.php?r=pedidosFacturaYii/getArchivoNC&id_cliente_sl={$id_cliente_sl}" target='_blank' class='btn btn-default button button-small' title='Exportar resultado a PDF'><span>Exportar a PDF</span></a>
 		<!-- Js Grid - end -->
 	</div>
 </div>
