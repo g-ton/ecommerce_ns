@@ -19,8 +19,9 @@ date_type.prototype = new jsGrid.Field({
 
     filterValue: function(item) {
         return {
-            f: this._fromPicker.datepicker("getDate"),
-            to: this._toPicker.datepicker("getDate")
+            //Con esto se corrige problema en chrome windows
+            f: this._fromPicker.datepicker().val(),
+            to: this._toPicker.datepicker().val()
         };
     },
 

@@ -70,9 +70,9 @@ $(document).ready(function()
         },
  
         fields: [
-            { name: "folio_factura", type: "text", title: "Folio Factura"},
+            { name: "folio_factura", type: "text", title: "Folio Factura", width: "60"},
             { name: "fecha", type: "date_type", title: "Fecha"},
-            { name: "dias_credito", type: "text", title: "Días Crédito"},
+            { name: "dias_credito", type: "text", title: "Días Crédito", width: "60"},
             { name: "monto_total", type: "text", title: "Monto Total", filtering: false},
             { name: "abonado", type: "text", title: "Abonado", filtering: false},
             { name: "saldo", type: "text", title: "Saldo Final", filtering: false},
@@ -107,9 +107,9 @@ $(document).ready(function()
         },
  
         fields: [
-            { name: "folio_remision", type: "text", title: "Folio Remisión"},
+            { name: "folio_remision", type: "text", title: "Folio Remisión", width: "60"},
             { name: "fecha", type: "date_type", title: "Fecha"},
-            { name: "dias_credito", type: "text", title: "Días Crédito"},
+            { name: "dias_credito", type: "text", title: "Días Crédito", width: "60"},
             { name: "monto_total", type: "text", title: "Monto Total", filtering: false},
             { name: "abonado", type: "text", title: "Abonado", filtering: false},
             { name: "saldo", type: "text", title: "Saldo Final", filtering: false},
@@ -191,4 +191,4 @@ function detallePago(id_documento, tipo){
         }
     });
 
-}   
+}
