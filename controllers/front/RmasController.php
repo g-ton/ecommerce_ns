@@ -25,6 +25,7 @@ class RmasController extends FrontController
             _THEME_JS_DIR_.'/jsgrid/jsgrid.min.js',
             _THEME_JS_DIR_.'/jsgrid/i18n/jsgrid-es.js',
             _THEME_JS_DIR_.'/jquery-ui/jquery-ui.min.js',
+            _THEME_JS_DIR_.'my-datepicker.js',
 
         ));
         $this->addJqueryPlugin(array('scrollTo', 'footable', 'footable-sort'));

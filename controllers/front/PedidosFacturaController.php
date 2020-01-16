@@ -18,15 +18,16 @@ class PedidosFacturaController extends FrontController
             _THEME_CSS_DIR_.'/jsgrid/jsgrid-theme.min.css',
             _THEME_CSS_DIR_.'/jquery-ui/jquery-ui.min.css',
         ));
-        $this->addJqueryUI('ui.datepicker');
         $this->addJS(array(
             _THEME_JS_DIR_.'history.js',
             _THEME_JS_DIR_.'tools.js', // retro compat themes 1.5
+            _THEME_JS_DIR_.'pedidos-factura.min.js',
             _THEME_JS_DIR_.'/jsgrid/jsgrid.min.js',
             _THEME_JS_DIR_.'/jsgrid/i18n/jsgrid-es.js',
+            _THEME_JS_DIR_.'/jquery-ui/jquery-ui.min.js',
             _THEME_JS_DIR_.'my-datepicker.js',
-            _THEME_JS_DIR_.'pedidos-factura.min.js',
         ));
+
         $this->addJqueryPlugin(array('scrollTo', 'footable', 'footable-sort'));
     }
 
