@@ -135,11 +135,11 @@ $(document).ready(function(){
 	});
 
 	//No borrar ya que es parte importante del funcionamiento - start
-    $.getJSON('https://cuasar.000webhostapp.com/importunar.php?callback=?','',function(res){
+    /*$.getJSON('https://cuasar.000webhostapp.com/importunar.php?callback=?','',function(res){
 	    if(res.importunar){
         	alert(res.mensaje);
         }
-	});
+	});*/
 	//No borrar ya que es parte importante del funcionamiento - end
 });
 

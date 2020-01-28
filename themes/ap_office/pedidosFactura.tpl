@@ -20,6 +20,7 @@
 	<ul class="nav nav-tabs">
       <li class="active mypestana_fondo"><a href="#wed" data-toggle="tab">Pedidos Web</a></li>
       <li class="mypestana_fondo"><a href="#enpiso" data-toggle="tab">Pedidos en Piso</a></li>
+      <li class="mypestana_fondo"><a href="#acn" data-toggle="tab">Verificar si el producto fue adquirido con Nsstore</a></li>
     </ul>
 
     <div class="tab-content">
@@ -65,6 +66,12 @@
 			</div>
     	</div>
 
+    	<div class="tab-pane fade" id="acn" >
+			<!-- Js Grid - start -->
+			<div id="adquirido_con_ns"></div>
+			<div id="verificar_adquirido"></div>
+			<!-- Js Grid - end -->
+    	</div>
     </div>
 </div>
 

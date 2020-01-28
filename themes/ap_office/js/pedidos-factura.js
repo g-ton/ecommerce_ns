@@ -69,50 +69,80 @@ function btnRmaForm(tabla, item){
 	var cantidad 		= $(item).data('cantidad');
 	var thisBtn			= $(item);
 
-	$.ajax({
-	 	type: 'POST',
-    	data: {
-            idFolioPedido: idFolioPedido,
-            referencia: referencia,
-            tabla: tabla
-        },
-	    url: window.location.origin+'/yiiNsstore/index.php?r=rmasYii/consultarNserie',
-	    dataType: "json",
-	    encoding: "UTF-8",
-	    cache: false,
-	    success: function(data){
-	    	if(typeof data.m !== 'undefined'){
-			    alert(data.m);
-			}
+	if(typeof $(item).data('num_serie') !== 'undefined'){//Aquí se entra cuando de un caso de búsqueda por Número de serie se trate (Verificar si el producto fue adquirido con Nsstore), difiere de los procesos de búsqueda por pedido en piso o web
+		var index = 0;
+		var num_serie 		= $(item).data('num_serie');
+		var folio_compra 	= $(item).data('folio_compra');
 
-			else{
-		    	$.each(data, function(index, element) {
-		    		
-		    		var elementRow= thisBtn.parent().parent().index();
-					var table = document.getElementById(tabla).getElementsByTagName('tbody')[0];
-					var row = table.insertRow(elementRow+1);
-					row.id = referencia+elementRow; 
-					uniqId = idFolioPedido+''+elementRow+''+index; 
-					uniqIdCheck = idFolioPedido+''+elementRow+''+index+'check'; 
+		uniqId = idFolioPedido; 
+		uniqIdCheck = idFolioPedido+'check'; 
 
-					var cell1 = row.insertCell(0);
-				    var cell2 = row.insertCell(1);
-				    var cell3 = row.insertCell(2);
-				    var cell4 = row.insertCell(3);
+	 	let tabla_lienzo= `
+	    <table style="width: 100%;">
+			<tbody>
+				<tr>
+					<td>N. Serie: <input type='text' class='${uniqId} form-control n' name='nserie' value=${num_serie} readonly></td>
+					<td>Motivo: <input type='text' class='${uniqId} form-control m' name='motivo'></td>
+					<td><input id=${uniqIdCheck} type='checkbox' value='rmaCheck'></td>
+					<td><input onclick='btnRmaEnviar(this)' type='button' value='Enviar' id=${uniqId} 
+						data-idfoliopedido=${idFolioPedido} 
+						data-referencia=${referencia} 
+						data-cantidad=${cantidad} 
+						data-foliocompra=${folio_compra}
+						data-idfoliopedidoweb='undefined' 
+						>
+					</td>
+				</tr>
+			</tbody>
+		</table>`;
+		$('#verificar_adquirido').html(tabla_lienzo);//El formulario de solicitud es pintado sobre el elemento verificar_adquirido, en los procesos de pedido en piso o web la forma de pintar el formulario es diferente, ya que se hace dentro de la tabla, aquí se hace afuera de ella
 
-				    cell1.innerHTML= "N. Serie: <input type='text' class='"+uniqId+" form-control n' name='nserie' value='"+element.num_serie+"' readonly>";
-				    cell2.innerHTML= "Motivo: <input type='text' class='"+uniqId+" form-control m' name='motivo'>";
-				    cell2.colSpan= 3;
-				    cell3.innerHTML= "<input id='"+uniqIdCheck+"' type='checkbox' name='vehicle' value='rmaCheck'>";
-				    cell4.innerHTML= 
-				    "<input onclick='btnRmaEnviar(this)' type='button' value='Enviar' id='"+uniqId+"' data-idfoliopedido='"+idFolioPedido+"' data-referencia='"+referencia+"' data-cantidad='"+cantidad+"' data-idfoliopedidoweb='"+element.folio_pedido+"' data-foliocompra='"+element.folio_compra+"'>";
-				});
-			}
-    	},
-    	error: function (xhr, ajaxOptions, thrownError) {
-    		alert('Ha ocurrido un error, intente más tarde');
-    	}
-	});
+	} else{
+		$.ajax({
+		 	type: 'POST',
+	    	data: {
+	            idFolioPedido: idFolioPedido,
+	            referencia: referencia,
+	            tabla: tabla
+	        },
+		    url: window.location.origin+'/yiiNsstore/index.php?r=rmasYii/consultarNserie',
+		    dataType: "json",
+		    encoding: "UTF-8",
+		    cache: false,
+		    success: function(data){
+		    	if(typeof data.m !== 'undefined'){
+				    alert(data.m);
+				}
+
+				else{
+			    	$.each(data, function(index, element) {
+			    		
+			    		var elementRow= thisBtn.parent().parent().index();
+						var table = document.getElementById(tabla).getElementsByTagName('tbody')[0];
+						var row = table.insertRow(elementRow+1);
+						row.id = referencia+elementRow; 
+						uniqId = idFolioPedido+''+elementRow+''+index; 
+						uniqIdCheck = idFolioPedido+''+elementRow+''+index+'check'; 
+
+						var cell1 = row.insertCell(0);
+					    var cell2 = row.insertCell(1);
+					    var cell3 = row.insertCell(2);
+					    var cell4 = row.insertCell(3);
+
+					    cell1.innerHTML= "N. Serie: <input type='text' class='"+uniqId+" form-control n' name='nserie' value='"+element.num_serie+"' readonly>";
+					    cell2.innerHTML= "Motivo: <input type='text' class='"+uniqId+" form-control m' name='motivo'>";
+					    cell2.colSpan= 3;
+					    cell3.innerHTML= "<input id='"+uniqIdCheck+"' type='checkbox' name='vehicle' value='rmaCheck'>";
+					    cell4.innerHTML= 
+					    "<input onclick='btnRmaEnviar(this)' type='button' value='Enviar' id='"+uniqId+"' data-idfoliopedido='"+idFolioPedido+"' data-referencia='"+referencia+"' data-cantidad='"+cantidad+"' data-idfoliopedidoweb='"+element.folio_pedido+"' data-foliocompra='"+element.folio_compra+"'>";
+					});
+				}
+	    	},
+	    	error: function (xhr, ajaxOptions, thrownError) {
+	    		alert('Ha ocurrido un error, intente más tarde');
+	    	}
+		});
+	}
 }
 
 //Envía el motivo desde el formulario para aplicar el RMA
@@ -258,6 +288,48 @@ $(document).ready(function(){
             { name: "ordenar", type: "text", title: "Ordenar", filtering: false},
 			{ name: "xml", type: "text", title: "XML", filtering: false},
             { name: "pdf", type: "text", title: "PDF", filtering: false},
+            { type: "control", editButton: false, deleteButton: false, modeSwitchButton: false }
+        ]
+    });
+	//js grid En línea- end
+	
+	//js grid En línea- start
+    var consulta_adquirido= window.location.origin + '/yiiNsstore/index.php?r=pedidosFacturaYii/consultarProductoPorNumSerie';
+
+    $("#adquirido_con_ns").jsGrid({
+        height: "auto",
+        width: "100%",
+        sorting: true,
+        paging: true,
+        autoload: true,
+        pageSize: 10,
+        pageButtonCount: 5,
+        filtering: true,
+ 
+        controller: {
+        	loadData: function(filter) {
+		        return $.ajax({
+		            type 	: "POST",
+		            dataType: "json",
+		            url		: consulta_adquirido,
+		            data 	: {
+		            	datos: filter,
+		            	cliente: clienteIdPrestashop
+		            },
+		            success: function (data) {
+				    	if(data.mensaje){//Es pintado el mensaje de error al usuario para notificar que el producto no fue adquirido en nsstore y por ende no aplica para RMA
+					    	alert(data.mensaje);
+				    	}
+				    }
+		        });
+		    }
+        },
+
+        fields: [
+            { name: "a-num_serie", type: "text", title: "Número de Serie"},
+            { name: "a-id_producto", type: "text", title: "ID Producto", filtering: false},
+            { name: "a-descripcion", type: "text", title: "Descripción", filtering: false},
+            { name: "solicitar_rma", type: "text", title: "RMA", filtering: false},
             { type: "control", editButton: false, deleteButton: false, modeSwitchButton: false }
         ]
     });
