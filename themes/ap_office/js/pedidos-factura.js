@@ -330,6 +330,8 @@ $(document).ready(function(){
             { name: "a-id_producto", type: "text", title: "ID Producto", filtering: false},
             { name: "a-descripcion", type: "text", title: "Descripción", filtering: false},
             { name: "solicitar_rma", type: "text", title: "RMA", filtering: false},
+			{ name: "xml", type: "text", title: "XML", filtering: false},
+            { name: "pdf", type: "text", title: "PDF", filtering: false},
             { type: "control", editButton: false, deleteButton: false, modeSwitchButton: false }
         ]
     });
