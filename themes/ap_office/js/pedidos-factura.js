@@ -77,26 +77,24 @@ function btnRmaForm(tabla, item){
 		uniqId = idFolioPedido; 
 		uniqIdCheck = idFolioPedido+'check'; 
 
-	 	let tabla_lienzo= `
-	    <table style="width: 100%;">
-			<tbody>
-				<tr>
-					<td>N. Serie: <input type='text' class='${uniqId} form-control n' name='nserie' value=${num_serie} readonly></td>
-					<td>Motivo: <input type='text' class='${uniqId} form-control m' name='motivo'></td>
-					<td><input id=${uniqIdCheck} type='checkbox' value='rmaCheck'></td>
-					<td><input onclick='btnRmaEnviar(this)' type='button' value='Enviar' id=${uniqId} 
-						data-idfoliopedido=${idFolioPedido} 
-						data-referencia=${referencia} 
-						data-cantidad=${cantidad} 
-						data-foliocompra=${folio_compra}
-						data-idfoliopedidoweb='undefined' 
-						>
-					</td>
-				</tr>
-			</tbody>
-		</table>`;
-		$('#verificar_adquirido').html(tabla_lienzo);//El formulario de solicitud es pintado sobre el elemento verificar_adquirido, en los procesos de pedido en piso o web la forma de pintar el formulario es diferente, ya que se hace dentro de la tabla, aquí se hace afuera de ella
-
+	 	let form_lienzo= `<div class="form-group">
+			N. Serie: <input type='text' class='${uniqId} form-control n' name='nserie' value=${num_serie} readonly>
+		</div>
+		<div class="form-group">
+			Motivo: <input type='text' class='${uniqId} form-control m' name='motivo'>
+		</div>
+		<div class="form-group">
+			<label>Cuadro de selección RMA</label>
+			<input id=${uniqIdCheck} type='checkbox' value='rmaCheck'>
+			<input onclick='btnRmaEnviar(this,1)' type='button' value='Enviar' id=${uniqId} 
+			data-idfoliopedido=${idFolioPedido} 
+			data-referencia=${referencia} 
+			data-cantidad=${cantidad} 
+			data-foliocompra=${folio_compra}
+			data-idfoliopedidoweb='undefined' 
+			>
+		</div>`;
+		$('#verificar_adquirido').html(form_lienzo);//El formulario de solicitud es pintado sobre el elemento verificar_adquirido, en los procesos de pedido en piso o web la forma de pintar el formulario es diferente, ya que se hace dentro de la tabla, aquí se hace afuera de ella
 	} else{
 		$.ajax({
 		 	type: 'POST',
@@ -146,7 +144,8 @@ function btnRmaForm(tabla, item){
 }
 
 //Envía el motivo desde el formulario para aplicar el RMA
-function btnRmaEnviar(item){
+//tipo_form -> 0= Desde pedidos, 1= desde búsqueda por núm serie
+function btnRmaEnviar(item, tipo_form= 0){
 	var uniqId= $(item).attr('id');
 	var uniqIdCheck= '#' +$(item).attr('id')+ 'check';
 
@@ -182,14 +181,25 @@ function btnRmaEnviar(item){
 			    encoding: "UTF-8",
 			    cache: false,
 			    beforeSend: function() {
-				   $(".loadingmessage").show(); 
+			    	if(tipo_form==0){
+						$(".loadingmessage").show(); 
+			    	}
 				},
 			    success: function (data) {
-			    	$(".loadingmessage").hide(); 
-			    	alert(data.m);			    	
-			    	btnRmaEnviarTh.attr("disabled", true);	
+			    	if(tipo_form==0){
+				    	$(".loadingmessage").hide(); 
+				    	btnRmaEnviarTh.attr("disabled", true);	
+			    	} else{
+			    		$('#verificar_adquirido').html('');
+			    	}		    	
+			    	alert(data.m);	
 			    },
 			    error: function (xhr, ajaxOptions, thrownError) {
+			    	if(tipo_form==0){
+				    	$(".loadingmessage").hide(); 
+				    } else{
+				    	$('#verificar_adquirido').html('');
+				    }
 			    	alert('Ha ocurrido un error, intente más tarde');
 			    }
 			});
