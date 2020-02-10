@@ -330,6 +330,9 @@ $(document).ready(function(){
 				    	if(data.mensaje){//Es pintado el mensaje de error al usuario para notificar que el producto no fue adquirido en nsstore y por ende no aplica para RMA
 					    	alert(data.mensaje);
 				    	}
+				    },
+				    complete: function () {
+				    	$('#verificar_adquirido').html('');//Es limpiado el formulario de solicitud de rma por si es que existe
 				    }
 		        });
 		    }
